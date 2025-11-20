@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Daniel R. Sarmienti | Depto. Estadistica</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        
+        :root {
+            --color-texto: #333333;
+            --color-titulo: #1a1a1a;
+            --color-enlace: #004488; 
+            --color-fondo: #ffffff;
+            --color-borde: #dddddd;
+            --ancho-maximo: 900px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--color-texto);
+            line-height: 1.7;
+            margin: 0;
+            background-color: var(--color-fondo);
+        }
+
+        /* Contenedor principal centrado */
+        .container {
+            max-width: var(--ancho-maximo);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- CABECERA Y NAVEGACIÓN --- */
+        header {
+            border-bottom: 1px solid var(--color-borde);
+            padding: 40px 0 20px 0;
+            margin-bottom: 40px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--color-titulo);
+        }
+
+        h1 { font-size: 2.2rem; margin-bottom: 5px; }
+        .subtitle { font-size: 1.1rem; color: #666; font-style: italic; }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            gap: 25px;
+            border-top: 1px solid var(--color-borde);
+            padding-top: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-texto);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover { color: var(--color-enlace); text-decoration: underline; }
+
+        /* --- SECCIONES --- */
+        section { margin-bottom: 60px; scroll-margin-top: 20px;}
+
+        h2 {
+            border-bottom: 2px solid var(--color-borde);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        /* --- PERFIL --- */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .profile-img {
+            width: 100%;
+            background-color: #f0f0f0; /* Placeholder gris */
+            height: 250px; 
+            object-fit: cover;
+            border: 1px solid #ccc;
+        }
+
+        .btn-cv {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            border: 1px solid var(--color-enlace);
+            color: var(--color-enlace);
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-radius: 3px;
+        }
+        .btn-cv:hover { background-color: var(--color-enlace); color: white; }
+
+        /* --- PUBLICACIONES --- */
+        .pub-list { list-style: none; padding: 0; }
+        .pub-list li { margin-bottom: 15px; padding-left: 15px; border-left: 3px solid #eee; }
+        .pub-title { font-weight: bold; }
+        .pub-meta { font-style: italic; color: #555; font-size: 0.95rem; }
+        a.doi-link { color: var(--color-enlace); font-size: 0.9rem; text-decoration: none; }
+
+        /* --- DOCENCIA (ACORDEONES) --- */
+        details {
+            border: 1px solid var(--color-borde);
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        summary {
+            padding: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #fafafa;
+            list-style: none; /* Oculta la flecha por defecto en algunos navegadores */
+        }
+        
+        summary:hover { background-color: #f0f0f0; }
+        
+        /* Pequeña flecha personalizada */
+        summary::after { content: "+"; float: right; font-weight: bold; }
+        details[open] summary::after { content: "-"; }
+
+        .course-content { padding: 20px; border-top: 1px solid var(--color-borde); }
+        
+        table.course-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table.course-table th, table.course-table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #777;
+            border-top: 1px solid var(--color-borde);
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        /* Móvil */
+        @media (max-width: 700px) {
+            .profile-grid { grid-template-columns: 1fr; }
+            .profile-img { width: 150px; height: 150px; margin: 0 auto; display: block; }
+            nav ul { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Daniel R. Sarmiento </h1>
+            <div class="subtitle">Profesor Auxiliar | Departamento de Matemáticas y Estadística</div>
+            <div class="subtitle">Universidad El Bosque</div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#perfil">Perfil</a></li>
+                    <li><a href="#investigacion">Investigación</a></li>
+                    <li><a href="#docencia">Docencia</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="perfil">
+                <h2>Sobre Mí</h2>
+                <div class="profile-grid">
+                    <div>
+                        <img src="https://via.placeholder.com/200x250?text=FOTO" alt="Foto del Profesor" class="profile-img">
+                        <br>
+                        <a href="#" class="btn-cv">Descargar CV (PDF)</a>
+                    </div>
+                    <div>
+                        <p>Bienvenido a mi página académica personal. Soy Profesor e Investigador en el área de <strong>Metodos Montercarlo Informativos</strong>, <strong>Teoria de Valores Extremos </strong> y  <strong>Metodos Computaciones para Simulacion</strong>. Mi trabajo se centra en el desarrollo de modelos matemáticos para fenómenos complejos.</p>
+                        <p>Obtuve mi pregrado en la Universidad El Bosque en el año 2025. Actualmente imparto cursos de pregrado en la facultad de ciencias.</p>
+                        
+                        <h3>Intereses de Investigación</h3>
+                        <ul>
+                            <li>Simulacion Monte Carlo Hamiltoniano</li>
+                            <li>Teoria de Valores Extremos</li>
+                            <li>Metodos Computaciones para Estadistica</li>
+                            <li>Simulacion Estadistica</li>
+                            <li>Analsis Multivariado</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="investigacion">
+                <h2>Publicaciones Recientes</h2>
+                
+                <ul class="pub-list">
+                    <li>
+                        <div class="pub-title">Self-assessment of quality of life in patients after suffering from aneurysmal subarachnoid hemorrhage, principal component analysis
+</div>
+                        <div class="pub-meta"><strong>Sergio A. Calero-Martinez</strong>, &  Nazeer Aboud &  Georg Simion & Daniel Sarmiento....<em>Scientific Reports</em>, 2025-07-16 | Journal article</div>
+                        <a href="#" class="doi-link">[DOI: 10.1038/s41598-025-11523-8]</a> | <a href="https://www.nature.com/articles/s41598-025-11523-8" class="doi-link">[PDF]</a>
+                    </li>
+                </ul>
+
+                <h3>Congresos y Conferencias</h3>
+                <ul>
+                    <li><strong>2023:</strong> Ponencia invitada, <em>Latin American Congress of Probability</em>, Sao Paulo.</li>
+                    <li><strong>2022:</strong> Póster, <em>Bernoulli Society World Congress</em>.</li>
+                </ul>
+            </section>
+
+            <section id="docencia">
+                <h2>Cursos Impartidos</h2>
+                <p>Información y recursos para estudiantes actuales y pasados.</p>
+
+                <details open>
+                    <summary>Año Académico 2025</summary>
+                    <div class="course-content">
+                        <table class="course-table">
+                            <thead>
+                                <tr>
+                                    <th>Curso</th>
+                                    <th>Semestre</th>
+                                    <th>Nivel</th>
+                                    <th>Recursos</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Cálculo III</td>
+                                    <td>Semestre A</td>
+                                    <td>Pregrado</td>
+                                    <td><a href="#">Syllabus</a> | <a href="#">Notas</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Inferencia Estadística</td>
+                                    <td>Semestre A</td>
+                                    <td>Maestría</td>
+                                    <td><a href="#">Syllabus</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Año Académico 2024</summary>
+                    <div class="course-content">
+                        <table class="course-table">
+                            <tr>
+                                <td>Álgebra Lineal</td>
+                                <td>Pregrado</td>
+                                <td><a href="#">Ver programa</a></td>
+                            </tr>
+                            <tr>
+                                <td>Seminario de Investigación</td>
+                                <td>Doctorado</td>
+                                <td>Finalizado</td>
+                            </tr>
+                        </table>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Año Académico 2023</summary>
+                    <div class="course-content">
+                        <p>Histórico de cursos impartidos durante el periodo 2023.</p>
+                        <ul>
+                            <li>Probabilidad I</li>
+                            <li>Ecuaciones Diferenciales</li>
+                        </ul>
+                    </div>
+                </details>
+            </section>
+
+            <section id="contacto">
+                <h2>Contacto</h2>
+                <p>
+                    <strong>Oficina:</strong> Edificio de Ciencias, Oficina 304.<br>
+                    <strong>Correo Institucional:</strong> <a href="mailto:profesor@universidad.edu.co">profesor@universidad.edu.co</a><br>
+                    <strong>Teléfono:</strong> +57 (1) 555-5555 ext. 123
+                </p>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 Nombre Apellido. Departamento de Matemáticas y Estadística.</p>
+            <p>Diseño académico sobrio.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
